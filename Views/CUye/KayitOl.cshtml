@@ -1,0 +1,55 @@
+﻿@model WebFinal.Models.Uyeler
+@{
+    ViewBag.Title = "KayitOl";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<h2>KayitOl</h2>
+<hr />
+<br />
+@using (Html.BeginForm())
+{
+    <div class="row;margin-left: 20px;">
+        <div class="col col-md-3 ">
+            <div class="input-group mb-3;">
+                <span class="input-group-text" id="txtkad">kullanici adi</span>
+                @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control", aria_label = "KullaniciAdi", aria_describedby = "txtkad" })
+                <br />
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="row;margin-left: 20px;">
+        <div class="col col-md-3 ">
+            <div class="input-group mb-3;">
+                <span class="input-group-text" id="txtparola">sifre</span>
+                @Html.TextBoxFor(x => x.Parola, new { @class = "form-control", aria_label = "Parola", aria_describedby = "txtparola" })
+                <br />
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="col col-md-5">
+        <div class="input-group ">
+            <input type="submit" value="Kaydet" class="btn btn-success" />
+        </div>
+
+    </div>
+    <br />
+    <div class="col col-md-5">
+        <div class="input-group ">
+            @if (ViewBag.Result != null)
+            {
+                <div class="alert alert-@ViewBag.Status" role="alert">
+                    @ViewBag.Result
+                </div>
+            }
+        </div>
+
+    </div>
+}
+

@@ -1,0 +1,45 @@
+﻿@model WebFinal.Models.Uyeler
+@{
+    ViewBag.Title = "Giris";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+@*<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
+<!------ Include the above in your HEAD tag ---------->
+
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        @using (Html.BeginForm())
+                        { 
+                         <h3 class="text-center text-info">Giris Yap</h3>
+                         <div class="form-group">
+                             <label for="txtkad" class="text-info">Kullanici Adi:</label><br>
+                             @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control", aria_label = "KullaniciAdi", aria_describedby = "txtkad" })
+                         </div>
+                         <div class="form-group">
+                             <label for="txtparola" class="text-info">Sfireniz:</label><br>
+                               @Html.TextBoxFor(x => x.Parola, new { @class = "form-control", @type="Password" , aria_label = "Parola", aria_describedby = "txtparola" })
+                         </div>
+                        <div class="form-group">
+                            <label for="remember-me" class="text-info"><span>Beni Hatirla</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Giris Yap">
+                        </div>
+                        <div id="register-link" class="text-right">
+                            <a href="/CUye/KayitOl" class="text-info">Kayit ol</a>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+</body>
+

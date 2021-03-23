@@ -1,0 +1,63 @@
+﻿@using WebFinal.Models
+@model IEnumerable<Urunler>
+
+@{
+    ViewBag.Title = "Yonetim";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br />
+            <h2>Yonetim Paneli</h2>
+            <br />
+                  <div class="centerdiv">
+                      @Html.ActionLink("Yeni Ürün", "YeniUrun", "CUrun", null, new { @class = "btn btn-primary" })
+                  </div>
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">                  
+            <ul class="list-group">
+                <li class="list-group-item active" >Urun Adi</li>
+                @foreach (var Urun in Model)
+                {
+
+            <li class="list-group-item">
+                @Html.ActionLink("Sil", "Sil", "CUrun", new { urunid = Urun.Id }, new { @class = "btn btn-danger btn-xs" })
+                @Html.ActionLink("Duzenle", "Duzenle", "CUrun", new { urunid = Urun.Id }, new { @class = "btn btn-warning btn-xs" })
+                @(Urun.Ad)
+            </li>
+                }
+            </ul>
+        </div>
+        <div class="col-md-4">                    
+            <ul class="list-group">
+                <li class="list-group-item active">Urun Fiyatı</li>
+                @foreach (var Urun in Model)
+                {   
+                    <li class="list-group-item">
+                       @(Urun.Fiyat)
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col-md-4">           
+            <ul class="list-group">
+                <li class="list-group-item active">Urun İd</li>
+                @foreach (var Urun in Model)
+                {
+                <li class="list-group-item">
+                    @(Urun.Id)
+                </li>
+                }
+            </ul>
+        </div>    
+    </div>
+  
+
+</div>
+
+

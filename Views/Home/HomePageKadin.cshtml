@@ -1,0 +1,51 @@
+﻿@using WebFinal.ViewsModels
+@model HomePageViewModel
+@{
+    ViewBag.Title = "HomePageKadin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="px-lg-5">
+        <div class="row">
+            @foreach (var urun in Model.Urunler)
+            {
+                if (urun.Erkekmi != true)
+                {
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <div class="bg-white rounded shadow-sm">
+                            <img src=@urun.Resim alt="ürün resmi" class="img-fluid card-img-top" style="height:200px">
+                            <div class="p-4">
+                                @using (Html.BeginForm())
+                                {
+                                    @*@Html.ActionLink("SepeteEkle", "HomePage", "Home", new { urunid = urun.Id }, new { @class = "btn btn-success btn-sm", type = "submit" })*@
+                                    <input type="hidden" value="@urun.Id" name="urunid" />
+                                    <input type="submit" value="Sepete Ekle" class="btn btn-success btn-sm" />
+                                }
+                                @*<h5> <a href="#" class="text-dark">Satin al</a></h5>*@
+                                <p class="small text-muted mb-0">@urun.Fiyat TL</p>
+                                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2">@urun.Ad</i><span class="font-weight-bold"></span></p>
+                                    <div class="badge badge-danger px-3 rounded-pill font-weight-normal"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+        </div>
+
+    </div>
+</div>
+<div class="col col-md-5">
+    <div class="input-group ">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+    </div>
+
+</div>

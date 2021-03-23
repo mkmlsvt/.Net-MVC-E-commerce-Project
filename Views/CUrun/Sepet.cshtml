@@ -1,0 +1,72 @@
+﻿@using WebFinal.Models
+@{
+    ViewBag.Title = "Sepet";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+    int toplam = 0;
+}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-image">
+                    <thead>
+                        <tr>
+                            <th scope="col">İd</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Urun Adi</th>
+                            <th scope="col">fiyat</th>
+                            
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var urun in (List<Urunler>)Session["sepet"])
+                        {
+                            toplam += urun.Fiyat;
+                            <tr>
+
+                                <th scope="row">@urun.Id</th>
+                                <td class="w-25">
+                                    <img src=@urun.Resim class="img-fluid img-thumbnail" style="height:80px" alt="Urun Resmi">
+                                </td>
+                                <td>@urun.Ad</td>
+                                <td>@urun.Fiyat</td>
+                                  
+                                <td> <input type="submit" value="sil" class="btn btn-danger" onclick="location.href = '/CUrun/SepettenSil?urunid=@urun.Id'" /> </td>
+                                
+                            </tr>
+                        }
+
+
+                    </tbody>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>@toplam TL</strong></td>
+                </table>
+                @using (Html.BeginForm())
+                {
+                    <input type="submit" value="Satin al" class="btn btn-success btn-sm;" style="float:right" />
+                }
+                
+                <div class="input-group ">                
+                </div>
+
+            </div>
+            </div>
+        </div>
+    
+    <div class="col col-md-5">
+        <div class="input-group ">
+            @if (ViewBag.Result != null)
+            {
+                <div class="alert alert-@ViewBag.Status" role="alert">
+                    @ViewBag.Result
+                </div>
+            }
+        </div>
+
+    </div>
+
+
+

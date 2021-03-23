@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Onay";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<h1 class="alert-success" >
+    Satın Alma İşleminiz Onaylandı...
+</h1>
+<div class=" alert-light">
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="alısverise devam et" class="btn btn-success btn-sm;" style="float:right" />
+    }
+</div>

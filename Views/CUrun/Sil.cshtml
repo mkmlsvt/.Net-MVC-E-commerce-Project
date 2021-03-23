@@ -1,0 +1,43 @@
+﻿@model WebFinal.Models.Urunler
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<h2>Sil</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-image">
+                <thead>
+                    <tr>
+                        <th scope="col">İd</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Urun Adi</th>
+                        <th scope="col">fiyat</th>
+                        <th scope="col">Erkekmi</th>
+                        <th scope="col">İndirimdemi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">@Model.Id</th>
+                        <td class="w-25">
+                            <img src=@Model.Resim class="img-fluid img-thumbnail" alt="Urun Resmi">
+                        </td>
+                        <td>@Model.Ad</td>
+                        <td>@Model.Fiyat</td>
+                        <td>@Model.Erkekmi</td>
+                        <td>@Model.Indirim</td>
+                        @using (Html.BeginForm())
+                        {
+                        <td><input type="submit" value="sil" class="btn btn-danger"/></td>
+                        }
+                    </tr>                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

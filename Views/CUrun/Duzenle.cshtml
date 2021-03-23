@@ -1,0 +1,85 @@
+﻿@model WebFinal.Models.Urunler
+@{
+    ViewBag.Title = "Duzenle";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<h2>Duzenle</h2>
+<hr />
+<br />
+@using (Html.BeginForm("Duzenle", "CUrun", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row;margin-left: 20px;">
+        <div class="col col-md-3 ">
+            <div class="input-group mb-3;">
+                <span class="input-group-text" id="txtad">urun adi</span>
+                @Html.TextBoxFor(x => x.Ad, new { @class = "form-control", aria_label = "UrunAdi", aria_describedby = "txtad" })
+                <br />
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="col col-md-3">
+        <div class="input-group mb-3;">
+            <span class="input-group-text" id="txtfiyat">urun fiyati</span>
+            @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", aria_label = "UrunFiyati", aria_describedby = "txtfiyat" })
+            <br />
+
+        </div>
+    </div>
+    <br />
+
+    <div class="col col-md-3">
+        <div class="input-group mb-3;">
+            <input type="file" name="UrunResim" />
+        </div>
+    </div>
+
+
+    <br />
+    <div class="col col-md-5">
+        <div class="form-check">
+            @Html.CheckBoxFor(x => x.Indirim, new { @class = "form-check-input", value = "true", id = "indirim" })
+            <label class="form-check-label" for="indirim">
+                İndirimde mi
+            </label>
+        </div>
+    </div>
+    <br />
+    <div class="col col-md-5">
+        <div class="form-check">
+            @Html.CheckBoxFor(x => x.Erkekmi, new { @class = "form-check-input", value = "true", id = "erkekmi" })
+            <label class="form-check-label" for="erkekmi">
+                Erkek mi
+            </label>
+        </div>
+    </div>
+    <br />
+    <div class="col col-md-5">
+        <div class="input-group ">
+            <input type="submit" value="Kaydet" class="btn btn-success" />
+        </div>
+
+    </div>
+    <br />
+    <div class="col col-md-5">
+        <div class="input-group ">
+            @if (ViewBag.Result != null)
+            {
+                <div class="alert alert-@ViewBag.Status" role="alert">
+                    @ViewBag.Result
+                </div>
+            }
+        </div>
+
+    </div>
+}
+
+
+
+
+
+
+
